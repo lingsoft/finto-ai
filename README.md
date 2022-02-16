@@ -1,11 +1,12 @@
 
-# ELG adapted container for Annif Open API
+# ELG API for Finto AI Open API
 
-This git repository contains ELG adapted REST API based on [finto.ai](https://api.annif.org/v1/ui/) open API.
+The docker container built from this repo acts as a "proxy" container which routes [ELG](https://european-language-grid.readthedocs.io/en/stable/all/A3_API/LTInternalAPI.html) compatible requests to [finto.ai](https://api.annif.org/v1/ui/) open API and returns ELG compatible response.
 
-According to National Library of Finland, Annif is an automated subject indexing toolkit. It was originally created as a statistical automated indexing tool that used metadata from the Finna.fi discovery interface as a training corpus. Original repo is at [here](https://github.com/NatLibFi/Annif). Annif itself has Apache licence 2.0.
+The Finto API responds with subject suggestions for a given text. It is based on [Annif](http://annif.org/)
+developed mainly at the National Library of Finland. Annif is an automated subject indexing toolkit which has Apache licence 2.0.
 
-The docker container built from this repo acts as a "proxy" container which routes [ELG](https://european-language-grid.readthedocs.io/en/stable/all/A3_API/LTInternalAPI.html) compatible requests to [finto.ai](https://api.annif.org/v1/ui/) open API and return ELG ompatiable response.
+This ELG API was developed in EU's CEF project: [Microservices at your service](https://www.lingsoft.fi/en/microservices-at-your-service-bridging-gap-between-nlp-research-and-industry)
 
 ## Local development
 
@@ -55,7 +56,7 @@ Content-type : application/json
 #### BODY
 
 Text Request
-```json
+```
 {
 "type":"text",
 "params": // optional

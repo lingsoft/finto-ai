@@ -51,7 +51,7 @@ curl -H "Content-Type: application/json" -d @text-request.json http://localhost:
 {
     "type": "text",
     "params": {"limit": 2, "project_id": "yso-fi"},
-    "content": "Finto AI ehdottaa tekstille sopivia aiheita. Palvelu perustuu Annif-työkaluun."}
+    "content": "Finto AI ehdottaa tekstille sopivia aiheita. Palvelu perustuu Annif-työkaluun."
 }
 ```
 
@@ -106,6 +106,6 @@ of result return and project_id.
 - `score` (float)
   - confidence score of the indexed subject
 - `notation` (str)
-  - notaion of the indexed subject, for example "42.42"
+  - notation of the indexed subject, for example "42.42"
 - `uri` (str)
   - link to Finto ontology

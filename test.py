@@ -1,5 +1,4 @@
 from elg.model import TextsResponseObject
-from typing import List
 import unittest
 import requests
 from utils import handle_text
@@ -24,7 +23,7 @@ class TestResponseStucture(unittest.TestCase):
         Function handle_text should return a list"""
 
         response = handle_text(self.project_id, self.text, self.limit, self.threshold)
-        self.assertIsInstance(response, List)
+        self.assertIsInstance(response, list)
     
     def test_handle_text_util_content_return(self):
         """Given four required paramteres:

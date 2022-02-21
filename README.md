@@ -38,6 +38,8 @@ python3 -m unittest  -v
 docker build -t finto-ai:elg .
 ```
 
+Or pull directly ready-made image `docker pull lingsoft/finto-ai:tagname`.
+
 ## Deploying the service
 
 ```

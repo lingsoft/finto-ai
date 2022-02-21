@@ -19,7 +19,7 @@ Setup virtualenv, dependencies
 ```
 python3 -m venv finto-venv
 source finto-venv/bin/activate
-python3 -m pip install -r requirements
+python3 -m pip install -r requirements.txt
 ```
 Run the development mode flask app
 

@@ -27,6 +27,11 @@ Run the development mode flask app
 FLASK_ENV=development flask run --host 0.0.0.0 --port 8000
 ```
 
+## Unit testing for utils.py that handle proxy API
+````
+python3 -m unittest  -v
+````
+
 ## Building the docker image
 
 ```

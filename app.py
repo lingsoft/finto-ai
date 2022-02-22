@@ -5,7 +5,6 @@ from elg.model.base import StandardMessages
 
 
 class Finto(FlaskService):
-
     def process_text(self, request: TextRequest):
         text = request.content
         project_id = 'yso-fi'
@@ -20,7 +19,8 @@ class Finto(FlaskService):
             res = utils.handle_text(project_id, text, limit, threshold)
         except Exception as err:
             detail = {'server error': str(err)}
-            error = StandardMessages.generate_elg_service_internalerror(detail=detail)
+            error = StandardMessages.generate_elg_service_internalerror(
+                detail=detail)
             return Failure(errors=[error])
         return TextsResponse(texts=res)
 

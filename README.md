@@ -67,7 +67,7 @@ can be used to control number of limit indexes return, threshold on score
 of result return and project_id.
 
 - `project-id` (str, default = `yso-fi`)
-  - currently Finto AI supports 3 project-id: `yso-fi`, `yso-en` and `yso-sv`, information about these project can be queried by 
+  - currently Finto AI supports 3 project-ids: `yso-fi`, `yso-en` and `yso-sv`, information about these projects can be queried by 
   ```
   curl -X GET --header 'Accept: application/json' 'https://ai.finto.fi/v1/projects'
   ```

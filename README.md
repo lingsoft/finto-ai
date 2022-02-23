@@ -7,8 +7,8 @@ and returns ELG compatible response.
 
 The Finto API responds with subject suggestions for a given text. It is 
 based on [Annif](http://annif.org/) developed mainly at the National 
-Library of Finland. Annif is an automated subject indexing toolkit which 
-has Apache licence 2.0.
+Library of Finland. Annif is an automated subject indexing toolkit with 
+Apache license 2.0. This ELG proxy is published under the same license.
 
 This ELG API was developed in EU's CEF project: 
 [Microservices at your service](https://www.lingsoft.fi/en/microservices-at-your-service-bridging-gap-between-nlp-research-and-industry)

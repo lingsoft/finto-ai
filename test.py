@@ -9,6 +9,7 @@ class TestResponseStucture(unittest.TestCase):
     project_id = 'yso-fi'
     text = 'Finto AI ehdottaa tekstille sopivia aiheita.\
             Palvelu perustuu Annif-työkaluun.'
+
     limit = 2
     threshold = 0
 
@@ -51,6 +52,23 @@ class TestResponseStucture(unittest.TestCase):
         for res in response:
             for prop in ['role', 'content', 'score', 'features']:
                 self.assertIn(prop, res.__dict__.keys())
+
+
+class TestFailureStucture(unittest.TestCase):
+    project_id = 'yso-wrong'
+    text = 'Finto AI ehdottaa tekstille sopivia aiheita.\
+            Palvelu perustuu Annif-työkaluun.'
+
+    limit = 2
+    threshold = 0
+
+    def test_handle_text_util_raise_exception_return(self):
+        """Should raise exception when invalid
+        project url was given
+        """
+
+        self.assertRaises(BaseException, handle_text, self.project_id,
+                          self.text, self.limit, self.threshold)
 
 
 if __name__ == '__main__':

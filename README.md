@@ -27,7 +27,7 @@ Run the development mode flask app
 FLASK_ENV=development flask run --host 0.0.0.0 --port 8000
 ```
 
-## Unit testing for utils.py that handle proxy API
+## Unit testing for utils.py that handles proxy API
 ````
 python3 -m unittest  -v
 ````
@@ -49,29 +49,26 @@ docker run -d -p <port>:8000 --init finto-ai:elg
 ## Example call
 
 ```
-curl -H "Content-Type: application/json" -d @text-request.json http://localhost:8000/process
+curl -H "Content-Type: application/json" -d @text-request.json http://localhost:8000/process/<project_id>
 ```
+Where endpoint `project-id` can be one of three supported strings: `yso-fi`, `yso-en`, and `yso-sv`. Information about these projects can be queried by 
+  ```
+  curl -X GET --header 'Accept: application/json' 'https://ai.finto.fi/v1/projects'
+  ```
 
 ### Text request
 
 ```json
 {
     "type": "text",
-    "params": {"limit": 2, "project_id": "yso-fi"},
+    "params": {"limit": 2},
     "content": "Finto AI ehdottaa tekstille sopivia aiheita. Palvelu perustuu Annif-työkaluun."
 }
 ```
 
-The `content` property contains text, `params` property is optional and 
+The `content` property contains text to be analyzed, the `params` property is optional and 
 can be used to control number of limit indexes return, threshold on score 
-of result return and project_id.
-
-- `project-id` (str, default = `yso-fi`)
-  - currently Finto AI supports 3 project-ids: `yso-fi`, `yso-en` and `yso-sv`, information about these projects can be queried by 
-  ```
-  curl -X GET --header 'Accept: application/json' 'https://ai.finto.fi/v1/projects'
-  ```
-
+of result return through:
 - `limit` (int, default = 5)
   - maximum number of subjects to return
 

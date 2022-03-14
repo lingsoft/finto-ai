@@ -7,12 +7,11 @@ from elg.model.base import StandardMessages
 class Finto(FlaskService):
     def process_text(self, request: TextRequest):
         text = request.content
-        project_id = 'yso-fi'
+        project_id = self.url_param('project_id')
         limit = 5
         threshold = 0
 
         if request.params:
-            project_id = request.params.get('project_id', project_id)
             limit = request.params.get('limit', limit)
             threshold = request.params.get('threshold', threshold)
         try:
@@ -24,5 +23,5 @@ class Finto(FlaskService):
         return TextsResponse(texts=res)
 
 
-flask_service = Finto("finto")
+flask_service = Finto(name="finto", path="/process/<project_id>")
 app = flask_service.app

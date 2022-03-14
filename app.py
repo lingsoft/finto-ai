@@ -18,9 +18,8 @@ class Finto(FlaskService):
         try:
             res = utils.handle_text(project_id, text, limit, threshold)
         except Exception as err:
-            detail = {'server error': str(err)}
             error = StandardMessages.generate_elg_service_internalerror(
-                detail=detail)
+                params=[str(err)])
             return Failure(errors=[error])
         return TextsResponse(texts=res)
 

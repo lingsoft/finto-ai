@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 import utils
 from elg import FlaskService
 from elg.model import Failure, TextsResponse, TextRequest
@@ -13,9 +14,16 @@ class Finto(FlaskService):
 
         if request.params:
             limit = request.params.get('limit', limit)
+            try:
+                limit = int(limit)
+            except ValueError:
+                invalid_type_msg = 'Submitted parameter limit is not a number'
+                error = StandardMessages.generate_elg_request_invalid(
+                    params=[invalid_type_msg])
+                return Failure(errors=[error])
+
             if limit < 0:
-                err_msg = 'Submitted parameter limit is negative,\
-                    please use a positive interger'
+                err_msg = 'Submitted parameter limit is negative, please use a positive interger'
 
                 error = StandardMessages.generate_elg_request_invalid(
                     params=[err_msg])

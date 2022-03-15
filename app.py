@@ -13,6 +13,13 @@ class Finto(FlaskService):
 
         if request.params:
             limit = request.params.get('limit', limit)
+            if limit < 0:
+                err_msg = 'Submitted parameter limit is negative,\
+                    please use a positive interger'
+
+                error = StandardMessages.generate_elg_request_invalid(
+                    params=[err_msg])
+                return Failure(errors=[error])
             threshold = request.params.get('threshold', threshold)
         try:
             res = utils.handle_text(project_id, text, limit, threshold)

@@ -1,5 +1,5 @@
 {
   "type": "text",
-  "params": {"limit": 2, "project_id": "yso-fi"},
+  "params": {"limit": 2, "threshold": 0.05},
   "content": "Finto AI ehdottaa tekstille sopivia aiheita. Palvelu perustuu Annif-työkaluun."
 }

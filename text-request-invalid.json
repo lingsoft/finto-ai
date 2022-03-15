@@ -1,0 +1,8 @@
+{
+  "type": "text",
+  "params": {
+    "limit": -10,
+    "threshold": 0.05
+  },
+  "content": "Finto AI ehdottaa tekstille sopivia aiheita. Palvelu perustuu Annif-työkaluun."
+}

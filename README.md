@@ -49,7 +49,7 @@ docker run -d -p <port>:8000 --init finto-ai:elg
 ## Example call
 
 ```
-curl -H "Content-Type: application/json" -d @text-request.json http://localhost:8000/process/<project_id>
+curl -H "Content-Type: application/json" -d @text-request.json http://localhost:<port>/process/<project_id>
 ```
 Where endpoint `project-id` can be one of three supported strings: `yso-fi`, `yso-en`, and `yso-sv`. Information about these projects can be queried by 
   ```
@@ -61,14 +61,14 @@ Where endpoint `project-id` can be one of three supported strings: `yso-fi`, `ys
 ```json
 {
     "type": "text",
-    "params": {"limit": 2},
+    "params": {"limit": 2, "threshold": 0.05},
     "content": "Finto AI ehdottaa tekstille sopivia aiheita. Palvelu perustuu Annif-työkaluun."
 }
 ```
 
-The `content` property contains text to be analyzed, the `params` property is optional and 
-can be used to control number of limit indexes return, threshold on score 
-of result return through:
+The `content` property contains text to be analyzed. The `params` property is optional and 
+can be used to control number of limit indexes return, and threshold on score 
+(score is in range 0.0-1.0, which reflects the estimated relevance of the subject):
 - `limit` (int, default = 5)
   - maximum number of subjects to return
 

@@ -18,14 +18,14 @@ class Finto(FlaskService):
                 limit = int(limit)
             except ValueError:
                 invalid_type_msg = 'Submitted parameter limit is not a number'
-                error = StandardMessages.generate_elg_request_invalid(
+                error = StandardMessages.generate_elg_service_internalerror(
                     params=[invalid_type_msg])
                 return Failure(errors=[error])
 
             if limit < 0:
-                err_msg = 'Submitted parameter limit is negative, please use a positive interger'
+                err_msg = 'Submitted parameter limit is negative'
 
-                error = StandardMessages.generate_elg_request_invalid(
+                error = StandardMessages.generate_elg_service_internalerror(
                     params=[err_msg])
                 return Failure(errors=[error])
             threshold = request.params.get('threshold', threshold)
